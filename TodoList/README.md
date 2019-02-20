@@ -12,13 +12,13 @@ cd ClientApp
 npm run build
 
 cd ..
-docker image build -t pebreo/cnug:4.0 .
+docker image build -t pebreo/cnug:<version> .
 
-docker container run -p 5000:80 --name cnug1 -d cnug:4.0  
+docker container run -p 5000:80 --name cnug1 -d cnug:<version>  
 
 docker login 
 
-docker image push pebreo/cnug:4.0 
+docker image push pebreo/cnug:<version>
 
 az login
 
