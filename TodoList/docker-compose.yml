@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: "pebreo/cnug:1.2"
+    image: "pebreo/cnug:1.4"
     # build: .
     ports:
       - "80:80"
