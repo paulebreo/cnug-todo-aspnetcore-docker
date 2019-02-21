@@ -28,7 +28,7 @@ namespace TodoList.Controllers
         }
 
         [HttpGet("{id}", Name = "GetTodo")]
-        public async Task<IActionResult> GetById(string id)
+        public async Task<IActionResult> GetById([FromRoute]int id)
         {
             var item = await _service.Find(id);
             if (item == null)
@@ -50,7 +50,7 @@ namespace TodoList.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, [FromBody] Todo item)
+        public async Task<IActionResult> Update(int id, [FromBody] Todo item)
         {
             if (item == null)
             {

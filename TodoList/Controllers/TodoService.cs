@@ -27,7 +27,7 @@ namespace TodoList.Controllers
         }
 
        
-        public async Task<Todo> Find(string key)
+        public async Task<Todo> Find(int key)
         {
             return await _context.Todos
                 .Where(e => e.TodoId.Equals(key))
