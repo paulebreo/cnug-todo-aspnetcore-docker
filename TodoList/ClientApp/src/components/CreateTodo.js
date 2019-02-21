@@ -6,8 +6,8 @@ export default class CreateTodo extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      taskName: 'foo',
-      assignee: 'fido'
+      taskName: '',
+      assignee: ''
     }
   }
   handleSubmit = async event => {
