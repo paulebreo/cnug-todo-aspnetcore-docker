@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TodoList.Controllers;
 using TodoList.Models;
 
 namespace TodoList
@@ -40,6 +41,7 @@ namespace TodoList
             {
                 configuration.RootPath = "ClientApp/build";
             });
+            services.AddScoped<ITodoService, TodoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

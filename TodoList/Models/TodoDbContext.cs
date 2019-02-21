@@ -1,23 +1,12 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace TodoList.Models
 {
-
-    public partial class TodoDbContext : DbContext
+    public class TodoDbContext : DbContext
     {
-
         public TodoDbContext(DbContextOptions<TodoDbContext> options)
-    : base(options)
-        {
-        }
-
-        public virtual DbSet<Todo> Todos { get; set; }
-    
+            : base(options) { }
+        public TodoDbContext() { }
+        public DbSet<Todo> Todos { get; set; }
     }
-
- 
-
 }
-
