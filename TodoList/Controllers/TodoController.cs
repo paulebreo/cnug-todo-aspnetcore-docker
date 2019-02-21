@@ -9,7 +9,9 @@ using TodoList.Models;
 
 namespace TodoList.Controllers
 {
-    public class TodoController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TodoController : ControllerBase
     {
         private readonly ITodoService _service;
 
