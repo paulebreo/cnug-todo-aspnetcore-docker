@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TodoList.Models;
 
 namespace TodoList
 {
@@ -20,7 +22,16 @@ namespace TodoList
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Database connection string.
+            // Make sure to update the Password value below from "Your_password123" to your actual password.
+            var connection = @"Server=db;Database=master;User=sa;Password=Your_password123;";
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // This line uses 'UseSqlServer' in the 'options' parameter
+            // with the connection string defined above.
+            services.AddDbContext<TodoDbContext>(
+                options => options.UseSqlServer(connection));
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
