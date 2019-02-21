@@ -2,8 +2,6 @@
 This app was created using `dotnet new react -o TodoList`
 To run the program type:
 ```
-dotnet watch run
-
 # Run a local mssql server 
 docker container run --name mssql-dev -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Your_password123' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU8-ubuntu 
 
@@ -21,6 +19,7 @@ var connection = @"Server=localhost;Database=master;User=sa;Password=Your_passwo
 Otherwise it should be:
 var connection = @"Server=db;Database=master;User=sa;Password=Your_password123;";
 
+dotnet watch run
 ```
 
 

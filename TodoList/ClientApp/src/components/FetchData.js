@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 export class FetchData extends Component {
   static displayName = FetchData.name;
 
@@ -7,11 +7,18 @@ export class FetchData extends Component {
     super(props);
     this.state = { forecasts: [], loading: true };
 
+     /*
     fetch('api/SampleData/WeatherForecasts')
       .then(response => response.json())
       .then(data => {
         this.setState({ forecasts: data, loading: false });
       });
+    */
+    axios.get('api/SampleData/WeatherForecasts')
+       .then(res => {
+            console.log("data from axios: " + res.data);
+            this.setState({forecasts: res.data, loading: false});
+        });
   }
 
   static renderForecastsTable (forecasts) {
