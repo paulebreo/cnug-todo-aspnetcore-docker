@@ -24,7 +24,7 @@ export default class Todos extends Component {
     let newTodos
     const res = await axios.delete(`/api/todo/${id}`)
     if (res.status === 204) {
-      newTodos = this.state.todos.filter(todo => todo.id !== parseInt(id))
+      newTodos = this.state.todos.filter(todo => todo.todoId !== parseInt(id))
     }
     this.setState({ todos: newTodos })
   }
