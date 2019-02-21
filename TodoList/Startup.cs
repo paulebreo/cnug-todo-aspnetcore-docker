@@ -27,7 +27,7 @@ namespace TodoList
             // Make sure to update the Password value below from "Your_password123" to your actual password.
             // TODO: auto switch to prod or local connection string
             //var connection = @"Server=localhost;Database=master;User=sa;Password=Your_password123;";
-             var connection = @"Server=db;Database=master;User=sa;Password=Your_password123;";
+             var connection = @"Server=todonetwork;Port=1433;Database=master;User=sa;Password=Your_password123;";
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
