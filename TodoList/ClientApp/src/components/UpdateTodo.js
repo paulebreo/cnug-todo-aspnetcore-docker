@@ -33,7 +33,7 @@ export default class UpdateTodo extends Component {
     evt.preventDefault()
     const todoId = this.props.todo.id
     try {
-      const res = await axios.put(`/api/todos/${todoId}`, this.state)
+      const res = await axios.put(`/api/todo/${todoId}`, this.state)
       if (res.status === 201) {
         this.props.updateTodo(res.data)
       } else {

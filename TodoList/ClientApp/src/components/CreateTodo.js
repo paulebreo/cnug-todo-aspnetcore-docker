@@ -15,7 +15,7 @@ export default class CreateTodo extends Component {
 
     console.log('handling submt')
 
-    const res = await axios.post('/api/todos', {
+    const res = await axios.post('/api/todo', {
       taskName: this.state.taskName,
       assignee: this.state.assignee
     })

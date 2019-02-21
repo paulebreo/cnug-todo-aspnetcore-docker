@@ -22,7 +22,7 @@ export default class Todos extends Component {
   handleDeleteTodos = async event => {
     const id = event.target.value
     let newTodos
-    const res = await axios.delete(`/api/todos/${id}`)
+    const res = await axios.delete(`/api/todo/${id}`)
     if (res.status === 204) {
       newTodos = this.state.todos.filter(todo => todo.id !== parseInt(id))
     }
@@ -30,7 +30,7 @@ export default class Todos extends Component {
   }
 
   async componentDidMount() {
-    const res = await axios.get('/api/todos')
+    const res = await axios.get('/api/todo')
     this.setState({ todos: res.data })
   }
 
