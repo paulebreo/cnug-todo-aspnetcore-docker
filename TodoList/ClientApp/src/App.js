@@ -9,10 +9,14 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import Todos from './components/Todos'
 import SingleTodo from './components/SingleTodo'
+import axios from 'axios'
 
 export default class App extends Component {
   static displayName = App.name
   render() {
+    axios.get('api/SampleData/WeatherForecasts').then(res => {
+      console.log('data from axios: ' + res.data)
+    })
     return (
       <div id="main">
         <h1>Todos</h1>
