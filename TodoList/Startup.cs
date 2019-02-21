@@ -24,7 +24,7 @@ namespace TodoList
         {
             // Database connection string.
             // Make sure to update the Password value below from "Your_password123" to your actual password.
-            var connection = @"Server=db;Database=master;User=sa;Password=Your_password123;";
+            var connection = @"Server=localhost;Database=master;User=sa;Password=Your_password123;";
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
