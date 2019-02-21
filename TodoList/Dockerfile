@@ -20,7 +20,5 @@ RUN dotnet publish "TodoList.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
-COPY entrypoint.sh .
 COPY --from=publish /app .
-RUN chmod +x ./entrypoint.sh
-CMD /bin/bash ./entrypoint.sh
+ENTRYPOINT ["dotnet", "TodoList.dll"]

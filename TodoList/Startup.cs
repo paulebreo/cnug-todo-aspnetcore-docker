@@ -26,8 +26,8 @@ namespace TodoList
             // Database connection string.
             // Make sure to update the Password value below from "Your_password123" to your actual password.
             // TODO: auto switch to prod or local connection string
-            var connection = @"Server=localhost;Database=master;User=sa;Password=Your_password123;";
-            //var connection = @"Server=db;Database=master;User=sa;Password=Your_password123;";
+            //var connection = @"Server=localhost;Database=master;User=sa;Password=Your_password123;";
+             var connection = @"Server=db;Database=master;User=sa;Password=Your_password123;";
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -35,7 +35,7 @@ namespace TodoList
             // with the connection string defined above.
             services.AddDbContext<TodoDbContext>(
                 options => options.UseSqlServer(connection));
-
+             
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -78,6 +78,10 @@ namespace TodoList
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                scope.ServiceProvider.GetService<TodoDbContext>().Database.Migrate();
+            }
         }
     }
 }
